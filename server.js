@@ -27,6 +27,31 @@ app.get("/", async (req, res) => {
     res.render("index.ejs");
   });
 
+
+//path to a page with a form
+app.get("/coffeeShops/new", (req, res) => {
+    res.render("coffeeShops/new.ejs");
+  });
+  
+// POST /fruits
+app.post("/coffeeShops", async (req, res) => {
+    if (req.body.goodForStudying === "on") {
+        req.body.goodForStudying = true;
+    } else {
+        req.body.isReadyToEat = false;
+    }
+    await CoffeeShops.create(req.body);
+    res.redirect("/coffeeShops");
+});
+
+
+//index route, designed to show our list of fruits
+app.get("/coffeeShops", async (req, res) => {
+    const allCoffeeShops = await CoffeeShops.find({});
+    //pass to render a context object, gives the page the information it needs
+    res.render("coffeeShops/index.ejs", { coffeeShops: allCoffeeShops });
+});
+
 app.listen(3000, () => {
     console.log("Listening on port 3000");
 });
