@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+</head>
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/"> Homepage </a>
+            </li>
+            <li>
+                <a href="/coffeeShops">Back to Coffee Shops</a>
+            </li>
+            <li>
+                <a href="/coffeeShops/<%= coffeeShop._id %>/edit">Edit <%= coffeeShop.name %></a>
+            </li>
+        </ul>
+</header>
+<body>
+    <h1><%= coffeeShop.name %></h1>
+    <% if (coffeeShop.goodForStudying) { %>
+        <p> This coffe shop is a great spot to study!</p>
+    <% } else { %>
+        <p>This coffee shop is only good for a sip, can't study here!</p>
+    <% } %>
+    <form action="/coffeeShops/<%=coffeeShop._id%>?_method=DELETE" method="POST">
+        <button type="submit"> Delete <%= coffeeShop.name %></button>
+    </form>
+</body>
+</html>
