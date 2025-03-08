@@ -3,33 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
     <title> Edit </title>
 </head>
-<header>
-    <nav>
-        <ul>
-            <li>
-                <a href="/"> Homepage </a>
-            </li>
-            <li>
-                <a href= "/coffeeShops" > Back to Coffee Shops</a>
-            </li>
-        </ul>
-</header>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/"> Homepage </a>
+                </li>
+                <li>
+                    <a href= "/coffeeShops" > Back to Coffee Shops</a>
+                </li>
+            </ul>
+    </header>
     <h1>Edit <%= coffeeShop.name %></h1>
-    <form action="/coffeeShops/<%=coffeeShop._id%>?_method=PUT" method="POST">
+    <form id="coffee-shop-form" action="/coffeeShops/<%= coffeeShop._id %>?_method=PUT" method="POST">
         <label for="name">Name:</label>
-        <input type="text" name="name" value="<%= coffeeShop.name %>" />
-        <label for="name">Image:</label>
-        <input type="text" name="image" value="<%= coffeeShop.image %>" />        
-        <label for="name">Address:</label>
-        <input type="text" name="location" value="<%= coffeeShop.location %>" />
-        <label for="name">Decription:</label>
-        <input type="text" name="decription" value="<%= coffeeShop.decription %>" />
+        <input type="text" name="name" id="name" value="<%= coffeeShop.name %>" required />
+
+        <label for="image">Image URL:</label>
+        <input type="text" name="image" id="image" value="<%= coffeeShop.image %>" required />
+        <% if (coffeeShop.image) { %>
+            <div class="image-container">
+                <img class="image-preview" id="image-preview" src="<%= coffeeShop.image %>" alt="Preview">
+            </div>
+        <% } %>
+
+        <label for="location">Address:</label>
+        <input type="text" name="location" id="location" value="<%= coffeeShop.location %>" required />
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" maxlength="500"><%= coffeeShop.description %></textarea>
+
         <label for="goodForStudying">Is this a good place to study?</label>
-        <input type="checkbox" name="goodForStudying" <% if (coffeeShop.goodForStudying) { %>checked<% } %> >
-        <button type="submit">Update Fruit</button>
-      </form>
+        <input type="checkbox" name="goodForStudying" id="goodForStudying" <% if (coffeeShop.goodForStudying) { %>checked<% } %> />
+        <p> Please click the box above for yes, or leave it unchecked for no</p>
+
+        <button type="submit" id="submit-btn">Update Coffee Shop</button>
+    </form>
 </body>
 </html>
