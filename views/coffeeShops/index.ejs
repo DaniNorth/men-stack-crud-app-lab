@@ -17,6 +17,15 @@
         </ul>
 </header>
 <body>
-    
+    <h1>All Coffee Shops</h1>
+    <ul>
+        <% coffeeShops.forEach(coffeeShop=> { %>
+            <li>
+                <a href="/coffeeShops/<%= coffeeShop._id %>">
+                    <%= coffeeShop.name %>
+                </a>
+            </li>
+        <% }); %>
+    </ul>
 </body>
 </html>
