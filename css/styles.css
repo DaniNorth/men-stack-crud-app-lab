@@ -1,0 +1,244 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #002A32; 
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #FFC6AC; 
+}
+
+/* Navigation Bar */
+nav {
+    background: rgba(0, 42, 50, 0.9); 
+    padding: 15px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFC6AC;
+    padding: 10px;
+    font-size: 16px;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background: #f48e00c2;
+    color: #002A32; 
+}
+
+/* Main Content Layout */
+main {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Page Titles */
+h1 {
+    font-size: 28px;
+    color: #FFC6AC;
+    margin-bottom: 20px;
+}
+
+/* Coffee Shop List */
+ul {
+    max-width: 800px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    background: #C4A29E; 
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+ul li a {
+    font-size: 18px;
+    color: #002A32; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Coffee Shop Details */
+.coffee-shop-details {
+    background: #938483; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    text-align: center;
+}
+
+.coffee-shop-details img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.coffee-shop-details p {
+    font-size: 16px;
+    color: #FFC6AC; 
+    margin-top: 10px;
+}
+
+/* Study Spot Indicator */
+.study-spot {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.study-spot.good {
+    color: #002A32; 
+    background: #F5B6AB;
+}
+
+.study-spot.bad {
+    color: #002A32;
+    background: #FD959F;
+}
+
+/* Forms */
+form {
+    background: #2b8b75bd; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 15px;
+    text-align: left;
+    margin: 50px auto; 
+}
+
+form label,
+form input[type="text"],
+form textarea {
+    width: 100%; 
+    max-width: 400px; 
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+img.image-preview {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #FFC6AC;
+    display: block; 
+}
+
+/* Buttons */
+button,
+.button {
+    background: #FA6391; 
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background 0.3s;
+    text-align: center;
+    display: inline-block;
+}
+
+button:hover,
+.button:hover {
+    background: #f48e00c2; 
+}
+
+button.delete-btn {
+    background: #FD959F; 
+}
+
+button.delete-btn:hover {
+    background: #F40076; 
+}
+
+/* Success & Error Messages */
+.success-message {
+    background: #F5B6AB; 
+    color: #002A32; 
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.error-message {
+    background: #F40076; /* Rose */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    ul {
+        grid-template-columns: 1fr;
+    }
+
+    .coffee-shop-details {
+        max-width: 90%;
+    }
+
+    form {
+        max-width: 90%;
+    }
+}
