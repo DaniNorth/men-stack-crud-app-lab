@@ -52,6 +52,18 @@ app.get("/coffeeShops", async (req, res) => {
     res.render("coffeeShops/index.ejs", { coffeeShops: allCoffeeShops });
 });
 
+//show fruit for individual fruits
+app.get("/coffeeShops/:coffeeShopId", async (req, res) => {
+    const foundCoffeeShop = await CoffeeShops.findById(req.params.coffeeShopId);
+    res.render("coffeeShops/show.ejs", { coffeeShop: foundCoffeeShop });
+  });
+  
+app.delete("/coffeeShops/:coffeeShopId", async (req, res) => {
+await CoffeeShops.findByIdAndDelete(req.params.coffeeShopId);
+res.redirect("/coffeeShops");
+});
+
+
 app.listen(3000, () => {
     console.log("Listening on port 3000");
 });
