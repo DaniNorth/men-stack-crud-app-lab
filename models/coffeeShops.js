@@ -1,4 +1,3 @@
-// models/fruit.js
 
 const mongoose = require('mongoose');
 
