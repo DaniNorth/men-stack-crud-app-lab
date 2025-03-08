@@ -63,6 +63,23 @@ await CoffeeShops.findByIdAndDelete(req.params.coffeeShopId);
 res.redirect("/coffeeShops");
 });
 
+app.get("/coffeeShops/:coffeeShopId/edit", async (req, res) => {
+    const foundCoffeeShop = await CoffeeShops.findById(req.params.coffeeShopId);
+    res.render("coffeeShops/edit.ejs", { coffeeShop: foundCoffeeShop });
+  });
+  
+  //update route used to capture edit form submissions from the client and send updates to mongoDB
+app.put("/coffeeShops/:coffeeShopId", async (req, res) => {
+    if (req.body.goodForStudying == "on") {
+      req.body.goodForStudying = true;
+    } else {
+      req.body.goodForStudying = false;
+    }
+    //update the fruit in the database
+    await CoffeeShops.findByIdAndUpdate(req.params.coffeeShopId, req.body);
+    res.redirect(`/coffeeShops/${req.params.coffeeShopId}`);
+});
+  
 
 app.listen(3000, () => {
     console.log("Listening on port 3000");
