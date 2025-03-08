@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const CoffeeShops = require("./models/coffeeShops.js");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
-
+const path = require('path');
 const app = express();
+
 //config code
 dotenv.config();
 
@@ -13,6 +14,7 @@ dotenv.config();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, 'css')));
 
 //morgan middleware
 app.use(morgan("dev"));
