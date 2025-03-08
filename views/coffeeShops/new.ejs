@@ -17,6 +17,19 @@
         </ul>
 </header>
 <body>
-    
+    <h1>Create a coffee shop spot!</h1>
+    <form action="/coffeeShops" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" />
+      <label for="image">Image:</label>
+      <input type="text" name="image" id="image" />
+      <label for="location">location:</label>
+      <input type="text" name="location" id="location" />
+      <label for="decription">Description:</label>
+      <input type="text" name="description" id="description" />
+      <label for="goodForStudying">Is this a good shop for studying?</label>
+      <input type="checkbox" name="goodForStudying" id="goodForStudying" />
+      <button type="submit">Add coffee shop</button>
+    </form>
 </body>
 </html>
