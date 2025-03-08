@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Edit </title>
 </head>
 <header>
     <nav>
@@ -12,11 +12,24 @@
                 <a href="/"> Homepage </a>
             </li>
             <li>
-                <a href= "/fruits" > Back to Fruits</a>
+                <a href= "/coffeeShops" > Back to Coffee Shops</a>
             </li>
         </ul>
 </header>
 <body>
-    
+    <h1>Edit <%= coffeeShop.name %></h1>
+    <form action="/coffeeShops/<%=coffeeShop._id%>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="<%= coffeeShop.name %>" />
+        <label for="name">Image:</label>
+        <input type="text" name="image" value="<%= coffeeShop.image %>" />        
+        <label for="name">Address:</label>
+        <input type="text" name="location" value="<%= coffeeShop.location %>" />
+        <label for="name">Decription:</label>
+        <input type="text" name="decription" value="<%= coffeeShop.decription %>" />
+        <label for="goodForStudying">Is this a good place to study?</label>
+        <input type="checkbox" name="goodForStudying" <% if (coffeeShop.goodForStudying) { %>checked<% } %> >
+        <button type="submit">Update Fruit</button>
+      </form>
 </body>
 </html>
